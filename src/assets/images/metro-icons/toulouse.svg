@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   viewBox="0 0 99.999993 99.999993"
+   id="svg6176"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Metro.svg">
+  <defs
+     id="defs6178" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="75.885132"
+     inkscape:cy="43.18998"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata6181">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-122.42518,-459.57365)">
+    <ellipse
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:3.42712641;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="path4142"
+       cx="172.40668"
+       cy="509.70032"
+       rx="43.057636"
+       ry="42.949448" />
+    <g
+       id="g148618"
+       transform="matrix(7.8497843,0,0,7.8497843,-1373.2667,-1930.7361)">
+      <g
+         transform="matrix(1.25,0,0,-1.25,196.90048,304.52563)"
+         id="g140516">
+        <path
+           inkscape:connector-curvature="0"
+           id="path140518"
+           style="fill:#283a7d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m 0,0 c -2.806,0 -5.089,-2.283 -5.089,-5.088 0,-2.806 2.283,-5.088 5.089,-5.088 2.807,0 5.087,2.282 5.087,5.088 C 5.087,-2.283 2.807,0 0,0 m 4.082,-5.088 c 0,-2.252 -1.831,-4.08 -4.082,-4.08 -2.251,0 -4.079,1.828 -4.079,4.08 0,2.249 1.828,4.08 4.079,4.08 2.251,0 4.082,-1.831 4.082,-4.08" />
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,198.75435,308.1785)"
+         id="g140520">
+        <path
+           inkscape:connector-curvature="0"
+           id="path140522"
+           style="fill:#283a7d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m 0,0 0.947,0 0,-4.405 -1.029,0 0,2.722 -1.234,-1.367 -0.164,0 -1.259,1.367 0,-2.722 -1.003,0 0,4.405 0.944,0 1.4,-1.664 L 0,0 Z" />
+      </g>
+    </g>
+    <ellipse
+       style="opacity:1;fill:#000000;fill-opacity:0"
+       id="path4138"
+       cx="168.72838"
+       cy="502.88477"
+       rx="43.274002"
+       ry="34.619205" />
+  </g>
+</svg>
