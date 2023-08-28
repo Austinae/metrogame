@@ -1,48 +1,43 @@
-import { View, Text, StyleSheet, ImageBackground, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
-import CandyShopImage from 'assets/images/miscellaneous/candyshop.webp'
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
-import EntypoIcon from 'react-native-vector-icons/Entypo'
+import { View, Text, StyleSheet, ImageBackground, Dimensions, TouchableOpacity, ScrollView, Image } from 'react-native'
 import { useTranslation } from 'react-i18next'
 
+import useGameContext from 'contexts/Game'
 import Back from 'components/basics/Back'
 import Coins from 'components/common/Coins'
 
+import ShopImage from 'assets/images/miscellaneous/shop.png'
+import { LinearGradient } from 'expo-linear-gradient'
+
 const { width, height } = Dimensions.get('window')
-const ICON_SIZE = width * .7 * .2
-const TITLE_FONT_SIZE = height * .05
-const STORE_OPTION_FONT_SIZE = height * .03
+const SHOP_IMAGE_RATIO = 599/416
+const SHOP_IMAGE_WIDTH = width * .6
+const STORE_OPTION_FONT_SIZE = height * .05
+const SHOP_IMAGE_HEIGHT = SHOP_IMAGE_WIDTH / SHOP_IMAGE_RATIO
 
 const Store = ({ navigation }) => {
 	const { t } = useTranslation()
 
   return (
-		<ImageBackground source={CandyShopImage} style={{flex: 1}} imageStyle={{opacity: .3}}>
-			<Back onPress={() => navigation.navigate('Home')} />
+		<LinearGradient colors={['red', 'lightblue']} style={{flex: 1}}>
+			<Back onPress={() => navigation.navigate('Home')} color={'white'} />
 			<Coins containerStyle={styles.coinsContainer} />
 			<ScrollView contentContainerStyle={styles.container}>
-				<View style={styles.cushion}>
-					<Text style={styles.title}>{t("store")}</Text>
+				<View style={styles.storeImageContainer}>
+					<Image
+						source={ShopImage}
+						style={{width: SHOP_IMAGE_WIDTH, height: SHOP_IMAGE_HEIGHT }}
+					/>
 				</View>
-				<TouchableOpacity style={styles.optionContainer} onPress={() => navigation.navigate('MapStyleStore')}>
-					<Text style={styles.optionStoreText}>{t("mapStyles")}</Text>
-					<FontAwesomeIcon
-						name="paint-brush"
-						size={ICON_SIZE}
-						color="orange"
-						style={styles.shadow}
-					/>
-				</TouchableOpacity>
-				<TouchableOpacity style={styles.optionContainer} onPress={() => navigation.navigate('MarkerStyleStore')}>
-					<Text style={styles.optionStoreText}>{t("markerStyles")}</Text>
-					<EntypoIcon
-						name="location-pin"
-						size={ICON_SIZE}
-						color="black"
-						style={styles.shadow}
-					/>
-				</TouchableOpacity>
+				<View style={styles.buttonsContainer}>
+					<TouchableOpacity onPress={() => navigation.navigate('MapStyleStore')} style={styles.buttonContainer}>
+						<Text style={styles.optionStoreText}>{t("mapStyles")}</Text>
+					</TouchableOpacity>
+					<TouchableOpacity onPress={() => navigation.navigate('MarkerStyleStore')} style={styles.buttonContainer}>
+						<Text style={styles.optionStoreText}>{t("markerStyles")}</Text>
+					</TouchableOpacity>
+				</View>
 			</ScrollView>
-		</ImageBackground>
+		</LinearGradient>
   )
 }
 
@@ -51,51 +46,36 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center'
 	},
-	title: {
-		fontSize: TITLE_FONT_SIZE,
-		fontFamily: 'Raleway-bold',
-		textDecorationLine: 'underline',
-	},
-	cushion: {
-		paddingTop: 60,
-		paddingBottom: 30,		
-	},
-	paintBrushGradient: {
-		height: ICON_SIZE,
-		width: ICON_SIZE,
-	},
-	shadow: {
-    shadowColor: 'black',
-    shadowOpacity: .5,
-    shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-  },
 	coinsContainer: {
 		zIndex: 2,
 		position: 'absolute',
 		top: 10,
 		right: 10,
 	},
-	optionContainer: {
-		backgroundColor: 'transparent',
-		justifyContent: 'center',
+	storeImageContainer: {
+		width,
 		alignItems: 'center',
-		flexDirection: 'row',
-		gap: 20,
-		backgroundColor: 'rgba(255,255,255,.4)',
-		borderColor: 'black',
-		borderRadius: ICON_SIZE,
-		padding: ICON_SIZE / 2,
-		borderWidth: 2,
-		marginVertical: 20,
+		justifyContent: 'center',
+		paddingTop: height * .1,
+		marginBottom: height * .06,
 	},
 	optionStoreText: {
 		fontSize: STORE_OPTION_FONT_SIZE,
 		fontFamily: 'Parisine',
+		textAlign: 'center',
 	},
+	buttonsContainer: {
+		flex: 1,
+		alignItems: 'center',
+	},
+	buttonContainer: {
+		width: width * .8,
+		borderWidth: width * .005,
+		padding: width * .04,
+		alignItems: 'center',
+		marginVertical: height * .015,
+		backgroundColor: '#CC5500	'
+	}
 })
 
 export default Store

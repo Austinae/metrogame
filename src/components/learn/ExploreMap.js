@@ -23,7 +23,7 @@ const ExploreMap = ({ navigation }) => {
 				<DrawingStationsCircles stationsGroupedByLine={stationsGroupedByLineExplore} region={regionExplore} isNameShown={true} />
         <DrawingLines stationsGroupedByLine={stationsGroupedByLineExplore} region={regionExplore} />
 			</Map>
-			<Back onPress={() => navigation.navigate('Explore')} />
+			<Back onPress={() => navigation.navigate('ExploreRegionPick')} />
 			<PickLinesModal lines={linesExplore} drawLines={drawLinesExplore} setDrawLines={setDrawLinesExplore} region={regionExplore} linesShownCapped={true} />
       <DoorsAnimation />
     </>

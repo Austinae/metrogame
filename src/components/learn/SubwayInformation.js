@@ -100,7 +100,7 @@ const SubwayInformation = ({ navigation, route }) => {
           <Text style={{ fontFamily: 'Raleway-bold', fontSize: height * .06 }}>{t(`cities.${key}`)}</Text>
         </View>
       </ImageBackground>
-      <Back onPress={() => navigation.navigate('Learn')} />
+      <Back onPress={() => navigation.navigate('LearnRegionPick')} />
       <ScrollView persistentScrollbar={true} style={{ flexGrow: 1, backgroundColor: 'white' }}>
         <InfoSectionTitle text={t("informationPage.general")} hasMarginTop={true} />
         <View style={styles.rowContainers}>

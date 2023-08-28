@@ -1,78 +1,84 @@
-import { useState } from 'react'
-import { Text, View, StyleSheet, Image, Dimensions, Platform } from 'react-native'
-import Carousel from 'components/basics/Carousel'
+import { View, Text, StyleSheet, ImageBackground, Dimensions, TouchableOpacity, ScrollView, Image } from 'react-native'
 import { useTranslation } from 'react-i18next'
 
-import useMusicContext from 'contexts/Music'
-import CountrySelection from 'components/common/CountrySelection'
+import useGameContext from 'contexts/Game'
+import Back from 'components/basics/Back'
+import Coins from 'components/common/Coins'
 
-import buttonSound from 'assets/sounds/button2.mp3'
-import data from 'data/regions'
+import LearningImage from 'assets/images/miscellaneous/learning.png'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const { width, height } = Dimensions.get('window')
-const SPACING = width * .02
-const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.72 : width * 0.74
-const TITLE_FONT_SIZE = width * 0.07
-const REGION_TAGS_SIZE = width * .14
-const REGION_TAGS_SIZE_HEIGHT = REGION_TAGS_SIZE * 3 / 5
+const SHOP_IMAGE_RATIO = 599/416
+const SHOP_IMAGE_WIDTH = width * .6
+const STORE_OPTION_FONT_SIZE = height * .05
+const SHOP_IMAGE_HEIGHT = SHOP_IMAGE_WIDTH / SHOP_IMAGE_RATIO
 
-const Learn = ({ navigation }) => {
-  const { t } = useTranslation()
-  const { playAudioAsync } = useMusicContext()
-  const [country, setCountry] = useState('fr')
-
-  const Card = ({ item }) => {
-    return (
-      <>
-        <Image source={{ uri: item.image }} style={styles.posterImage} />
-        <Text style={styles.regionTitle} numberOfLines={1}>{t(`cities.${item.key}`)}</Text>
-        <View style={[styles.countryTag, {width: REGION_TAGS_SIZE, height: REGION_TAGS_SIZE, top: SPACING*2 }]}>
-          <item.icon width={REGION_TAGS_SIZE} height={REGION_TAGS_SIZE} />
-        </View>
-      </>
-    )
-  }
-
-  const onPressEvent = async(regionName) => {
-    await playAudioAsync(buttonSound)
-    navigation.navigate('SubwayInformation', { region: regionName })
-  } 
+const Store = ({ navigation }) => {
+	const { t } = useTranslation()
 
   return (
-    <>
-      <Carousel data={data.filter((region, index) => region.countryKey == country)} onCardPress={onPressEvent} CardComponent={Card} backgroundColor={'#c1c6fc'} />
-      <CountrySelection country={country} setCountry={setCountry} />
-    </>
+		<LinearGradient colors={['skyblue', 'lightblue']} style={{flex: 1}}>
+			<Back onPress={() => navigation.navigate('Home')} color={'white'} />
+			<Coins containerStyle={styles.coinsContainer} />
+			<ScrollView contentContainerStyle={styles.container}>
+				<View style={styles.storeImageContainer}>
+					<Image
+						source={LearningImage}
+						style={{width: SHOP_IMAGE_WIDTH, height: SHOP_IMAGE_HEIGHT }}
+					/>
+				</View>
+				<View style={styles.buttonsContainer}>
+					<TouchableOpacity onPress={() => navigation.navigate('World')} style={styles.buttonContainer}>
+						<Text style={styles.optionStoreText}>{t("navigationTitle.world")}</Text>
+					</TouchableOpacity>
+					<TouchableOpacity onPress={() => navigation.navigate('ExploreRegionPick')} style={styles.buttonContainer}>
+						<Text style={styles.optionStoreText}>{t("navigationTitle.explore")}</Text>
+					</TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('LearnRegionPick')} style={styles.buttonContainer}>
+						<Text style={styles.optionStoreText}>{t("navigationTitle.learn")}</Text>
+					</TouchableOpacity>
+				</View>
+			</ScrollView>
+		</LinearGradient>
   )
 }
 
 const styles = StyleSheet.create({
-  regionTitle: {
-    fontSize: TITLE_FONT_SIZE,
-    fontFamily: 'Parisine',
-  },
-  posterImage: {
-    width: '100%',
-    height: ITEM_SIZE * 1.2,
-    resizeMode: 'cover',
-    borderRadius: 24,
-    margin: 0,
-    marginBottom: 10,
-  },
-  countryTag: {
-    position: 'absolute',
-    top: SPACING*2,
-    right: SPACING*2,
-    width: REGION_TAGS_SIZE,
-    height: REGION_TAGS_SIZE_HEIGHT,
-    borderRadius: REGION_TAGS_SIZE,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '',
-    borderWidth: REGION_TAGS_SIZE / 20,
-    overflow: 'hidden',
-  },
+	container: {
+		flex: 1,
+		alignItems: 'center'
+	},
+	coinsContainer: {
+		zIndex: 2,
+		position: 'absolute',
+		top: 10,
+		right: 10,
+	},
+	storeImageContainer: {
+		width,
+		alignItems: 'center',
+		justifyContent: 'center',
+		paddingTop: height * .1,
+		marginBottom: height * .06,
+	},
+	optionStoreText: {
+		fontSize: STORE_OPTION_FONT_SIZE,
+		fontFamily: 'Parisine',
+		textAlign: 'center',
+	},
+	buttonsContainer: {
+		flex: 1,
+		alignItems: 'center',
+	},
+	buttonContainer: {
+		width: width * .8,
+		borderWidth: width * .005,
+		padding: width * .04,
+		alignItems: 'center',
+		marginVertical: height * .015,
+		backgroundColor: '#CC5500	'
+	}
 })
 
-export default Learn
+export default Store

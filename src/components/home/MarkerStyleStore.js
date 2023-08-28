@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { View, Text, StyleSheet, ScrollView, Dimensions, ImageBackground, TouchableOpacity, Button, Image } from 'react-native'
-import EvilIconsIcon from 'react-native-vector-icons/EvilIcons'
+import EntypoIcon from 'react-native-vector-icons/Entypo'
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
 import Modal from 'react-native-modal'
 import { useTranslation } from 'react-i18next'
 
@@ -17,13 +18,14 @@ const CARD_BORDER_RADIUS = height * .08
 const CARD_BORDER_WIDTH = height * .002
 const CARD_CTA_CONTAINER_SIZE = height * .09
 const CARD_CTA_CONTAINER_PADDING = height * .01
-const CARD_FONT_SIZE = height * .025
+const CARD_FONT_SIZE = height * .02
 const CARD_CTA_FONT_SIZE = height * .02
 const CARD_MARGIN = height * .01
 const LOCK_ICON_SIZE = height * .08
+const CHECK_ICON_SIZE = height * .06
 const TITLE_FONT_SIZE = height * .05
 const PIN_IMAGE_ASPECT_RATIO = 50/70
-const PIN_IMAGE_HEIGHT = height * .09
+const PIN_IMAGE_HEIGHT = height * .08
 const PIN_IMAGE_WIDTH = PIN_IMAGE_HEIGHT * PIN_IMAGE_ASPECT_RATIO
 
 const MarkerStyleStore = ({ navigation }) => {
@@ -42,8 +44,7 @@ const MarkerStyleStore = ({ navigation }) => {
 		}
 	
 		const getCTABackgroundColor = () => {
-			if (isActiveStyle) return 'green'
-			if (isStylePurchased) return 'grey'
+			if (isStylePurchased) return '#E5E4E2'
 			return '#F6CC08'
 		}
 	
@@ -66,21 +67,27 @@ const MarkerStyleStore = ({ navigation }) => {
 	
 		return (
 			<TouchableOpacity key={item.key} onPress={onCardPress}>
-				<View style={[styles.cardContainer, {backgroundColor: item.background}]}>
+				<View style={[styles.cardContainer, {backgroundColor: item.background }]}>
 					<View style={[styles.cardCTAContainer, { backgroundColor: getCTABackgroundColor() }]}>
-						<Text style={styles.ctaFontSize}>{getCTAText()}</Text>
+						{
+							isActiveStyle ? 
+							<FontAwesomeIcon name={"check"} size={CHECK_ICON_SIZE} color={'#50C878'} />
+							:
+							<Text style={styles.ctaFontSize}>{getCTAText()}</Text>
+						}
 					</View>
 					<View style={{ flexDirection: 'row', gap: 15, justifyContent: 'center', alignItems: 'center'}}>
-						<Text style={styles.mapStyleText}>{t(item.key)}</Text>
 						<Image
 							source={item.image}
 							style={{ width: PIN_IMAGE_WIDTH, height: PIN_IMAGE_HEIGHT }}
 							resizeMode="contain"
 							height={height}
 							width={width}
-							tintColor={'black'}
+							tintColor={'#444444'}
 						/>
-						{!isStylePurchased && <EvilIconsIcon name={'lock'} size={LOCK_ICON_SIZE} color={'#F6CC08'} />}
+						<View style={{ width: LOCK_ICON_SIZE, height: LOCK_ICON_SIZE}}>
+							{!isStylePurchased && <EntypoIcon name={"lock"} size={LOCK_ICON_SIZE} color={'#F6CC08'} />}
+						</View>
 					</View>
 				</View>
 			</TouchableOpacity>

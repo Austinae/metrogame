@@ -37,7 +37,14 @@ const Connection = () => {
       {!isConnected && <View style={styles.textContainer}>
 				<Text style={styles.text}>{t("connectionInfo")}</Text>
 			</View>}
-      <Animated.View style={[styles.iconContainer, { backgroundColor: isConnected ? CONNECTED_BACKGROUND : DISCONNECTED_BACKGROUND, transform: [{ scale: animatedScale }] }]}>
+      <Animated.View style={[
+				styles.iconContainer,
+				{
+					backgroundColor: isConnected ? CONNECTED_BACKGROUND : DISCONNECTED_BACKGROUND,
+					transform: [{ scale: animatedScale }],
+					opacity: isConnected ? 0 : 1,
+				}]}
+			>
         <FeatherIcon name={isConnected ? 'wifi' : 'wifi-off'} size={ICON_SIZE} color={'black'} />
       </Animated.View>
     </View>

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { kmeans } from 'ml-kmeans'
 import { LinearGradient } from 'expo-linear-gradient'
 
+import Back from 'components/basics/Back'
 import subways from 'data/explore/subways'
 import initialRegions from 'data/initialRegions'
 import Map from 'components/home/play/gamemodes/common/Map'
@@ -12,7 +13,6 @@ import Map from 'components/home/play/gamemodes/common/Map'
 const { width, height } = Dimensions.get('window')
 const PIN_IMAGE_HEIGHT = height * .05
 const TITLE_FONT_SIZE = height * .05
-
 
 const kMeansMarkerPoints = (desiredClusterSize) => {
   let points = subways.map(item => [item.latitude, item.longitude])
@@ -30,7 +30,7 @@ const clustersOf10 = kMeansMarkerPoints(10)
 const clustersOf5 = kMeansMarkerPoints(5)
 const clustersOf2 = kMeansMarkerPoints(2)
 
-const World = () => {
+const World = ({ navigation }) => {
   const {
     latitude,
     longitude,
@@ -122,6 +122,12 @@ const World = () => {
         </View>
         <Text style={styles.titleText}>{t('exploreTitle')}</Text>
       </LinearGradient>
+      <Back onPress={() => navigation.navigate('Learn')} color={'white'} customStyle={{
+        position: 'absolute',
+        top: 60,
+        left: 10,
+        zIndex: 1,
+      }} />
     </>
   )
 }

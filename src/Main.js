@@ -16,9 +16,7 @@ import { Provider as FontProvider } from 'contexts/Font'
 
 import HomeStack from 'components/stacks/HomeStack'
 import LearnStack from 'components/stacks/LearnStack'
-import ExploreStack from 'components/stacks/ExploreStack'
 import WelcomeStack from 'components/stacks/WelcomeStack'
-import World from 'components/World'
 import Settings from 'components/Settings'
 import Connection from 'components/Connection'
 
@@ -49,7 +47,7 @@ const AppContent = () => {
             <WelcomeStack>
               <ConnectionProvider>
                 <>
-                  <StatusBar hidden />
+                  <StatusBar />
                   <Connection />
                   <Tab.Navigator
                     initialRouteName="HomeStack"
@@ -63,26 +61,6 @@ const AppContent = () => {
                         tabBarIcon: ({ color }) => (
                           <Ionicon name="md-home" color={color} size={ICON_SIZE} />
                         )
-                      }}
-                    />
-                    <Tab.Screen
-                      name="World"
-                      component={World}
-                      options={{
-                        tabBarLabel: t("navigationTitle.world"),
-                        tabBarIcon: ({ color }) => (
-                          <Ionicon name="planet-sharp" color={color} size={ICON_SIZE} />
-                        ),
-                      }}
-                    />
-                    <Tab.Screen
-                      name="ExploreStack"
-                      component={ExploreStack}
-                      options={{
-                        tabBarLabel: t("navigationTitle.explore"),
-                        tabBarIcon: ({ color }) => (
-                          <Ionicon name="train-sharp" color={color} size={ICON_SIZE} />
-                        ),
                       }}
                     />
                     <Tab.Screen

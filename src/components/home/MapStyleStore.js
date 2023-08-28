@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { View, Text, StyleSheet, ScrollView, Dimensions, ImageBackground, TouchableOpacity, Button } from 'react-native'
-import EvilIconsIcon from 'react-native-vector-icons/EvilIcons'
+import EntypoIcon from 'react-native-vector-icons/Entypo'
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
 import Modal from 'react-native-modal'
 import { useTranslation } from 'react-i18next'
 
@@ -19,6 +20,7 @@ const CARD_CTA_CONTAINER_SIZE = height * .09
 const CARD_CTA_CONTAINER_PADDING = height * .01
 const CARD_FONT_SIZE = height * .02
 const CARD_CTA_FONT_SIZE = height * .02
+const CHECK_ICON_SIZE = height * .06
 const CARD_MARGIN = height * .01
 const LOCK_ICON_SIZE = height * .08
 const TITLE_FONT_SIZE = height * .05
@@ -39,8 +41,7 @@ const MapStyleStore = ({ navigation }) => {
 		}
 	
 		const getCTABackgroundColor = () => {
-			if (isActiveStyle) return 'green'
-			if (isStylePurchased) return 'grey'
+			if (isStylePurchased) return '#E5E4E2'
 			return '#F6CC08'
 		}
 	
@@ -68,14 +69,17 @@ const MapStyleStore = ({ navigation }) => {
 					style={styles.cardContainer}
 					source={item.image}
 					resizeMode='cover'
-					imageStyle={{ opacity: .4 }}
 				>
 					<View style={[styles.cardCTAContainer, { backgroundColor: getCTABackgroundColor() }]}>
-						<Text style={styles.ctaFontSize}>{getCTAText()}</Text>
+						{
+							isActiveStyle ? 
+							<FontAwesomeIcon name={"check"} size={CHECK_ICON_SIZE} color={'#50C878'} />
+							:
+							<Text style={styles.ctaFontSize}>{getCTAText()}</Text>
+						}
 					</View>
 					<View style={{ flexDirection: 'row', gap: 5, justifyContent: 'center', alignItems: 'center'}}>
-						<Text style={styles.mapStyleText}>{t(item.key)}</Text>
-						{!isStylePurchased && <EvilIconsIcon name={'lock'} size={LOCK_ICON_SIZE} color={'#F6CC08'} />}
+						{!isStylePurchased && <EntypoIcon name={"lock"} size={LOCK_ICON_SIZE} color={'#F6CC08'} />}
 					</View>
 				</ImageBackground>
 			</TouchableOpacity>

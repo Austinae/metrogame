@@ -3,10 +3,9 @@ import { Text, View, StyleSheet, Image, Dimensions, Platform } from 'react-nativ
 import Carousel from 'components/basics/Carousel'
 import { useTranslation } from 'react-i18next'
 
-import linesImagesData from 'data/linesImages'
-import useGameContext from 'contexts/Game'
 import useMusicContext from 'contexts/Music'
 import CountrySelection from 'components/common/CountrySelection'
+import Back from 'components/basics/Back'
 
 import buttonSound from 'assets/sounds/button2.mp3'
 import data from 'data/regions'
@@ -18,12 +17,11 @@ const TITLE_FONT_SIZE = width * 0.07
 const REGION_TAGS_SIZE = width * .14
 const REGION_TAGS_SIZE_HEIGHT = REGION_TAGS_SIZE * 3 / 5
 
-const Explore = ({ navigation }) => {
+const SubwayInformationRegionPick = ({ navigation }) => {
   const { t } = useTranslation()
   const { playAudioAsync } = useMusicContext()
   const [country, setCountry] = useState('fr')
-  const { setRegionExplore, setDrawLinesExplore, setLinesExplore } = useGameContext()
-  
+
   const Card = ({ item }) => {
     return (
       <>
@@ -38,16 +36,12 @@ const Explore = ({ navigation }) => {
 
   const onPressEvent = async(regionName) => {
     await playAudioAsync(buttonSound)
-    setRegionExplore(regionName)
-    const data = linesImagesData[regionName]
-    const lineNames = data.map(item => item.name)
-    setLinesExplore(lineNames)
-    setDrawLinesExplore(lineNames.slice(0, Math.min(lineNames.length, 2)))
-    navigation.navigate('ExploreMap')
+    navigation.navigate('SubwayInformation', { region: regionName })
   } 
 
   return (
     <>
+      <Back onPress={() => navigation.navigate('Learn')} />
       <Carousel data={data.filter((region, index) => region.countryKey == country)} onCardPress={onPressEvent} CardComponent={Card} backgroundColor={'#c1c6fc'} />
       <CountrySelection country={country} setCountry={setCountry} />
     </>
@@ -83,4 +77,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Explore
+export default SubwayInformationRegionPick
