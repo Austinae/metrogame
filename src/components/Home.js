@@ -3,10 +3,12 @@ import React from 'react'
 
 import regions from 'data/regions'
 import Play from 'components/home/Play'
+import LearnStack from 'components/home/LearnStack'
 // import Achievements from 'components/home/Achievements'
 import TrainAnimation from 'components/home/TrainAnimation'
 import Coins from 'components/common/Coins'
 import StoreButton from 'components/home/StoreButton'
+import SettingsButton from 'components/home/SettingsButton'
 import RecentlyPlayed from 'components/home/RecentlyPlayed'
 
 const { width, height } = Dimensions.get('window')
@@ -26,7 +28,9 @@ const Home = ({ navigation }) => {
 			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: 2 }}>
 				<Coins containerStyle={styles.scoreContainer}/>
 				<StoreButton navigation={navigation} />
+				<SettingsButton navigation={navigation} />
 				<Play navigation={navigation} />
+				<LearnStack navigation={navigation} />
 				<RecentlyPlayed navigation={navigation} />
 			</View>
 		</ImageBackground>

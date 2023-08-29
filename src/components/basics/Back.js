@@ -7,7 +7,7 @@ const ICON_SIZE = height * .08
 const Back = ({ onPress, color, customStyle }) => {
 	return (
 		<TouchableOpacity onPress={onPress} style={customStyle ? customStyle : styles.container}>
-			<MaterialCommunityIconsIcon name={'arrow-left-bold-hexagon-outline'} size={ICON_SIZE} color={color ? color : 'red'} />
+			<MaterialCommunityIconsIcon name={'arrow-left-bold-hexagon-outline'} size={ICON_SIZE} color={color ? color : 'white'} />
 		</TouchableOpacity>
 	)
 }

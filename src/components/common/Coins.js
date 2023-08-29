@@ -4,11 +4,11 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 import useGameContext from 'contexts/Game'
 
 const { width, height } = Dimensions.get('window')
-const FONT_SIZE = width * .07
+const FONT_SIZE = width * .04
 const COIN_HEX = '#FFD700'
-const COIN_SIZE = width * .07
+const COIN_SIZE = width * .04
 const CONTAINER_PADDING = width * .03
-const SCORE_TOP = width > 700 ? 110 : 60
+const CONTAINER_LEFT_PADDING = width - 105
 
 const Coins = ({ containerStyle }) => {
   const { coins } = useGameContext()
@@ -26,17 +26,18 @@ const styles = StyleSheet.create({
 		backgroundColor: 'grey',
 		borderRadius: FONT_SIZE + CONTAINER_PADDING,
 		flexDirection: 'row',
-		gap: 10,
-		paddingHorizontal: CONTAINER_PADDING,
-		paddingTop: CONTAINER_PADDING / 1.5,
-		paddingBottom: CONTAINER_PADDING / 1.5,
+		gap: 7,
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		width: 80,
+		marginLeft: CONTAINER_LEFT_PADDING,
+		marginTop: 10,
 	},
 	coinsText: {
 		fontSize: FONT_SIZE,
 		fontFamily: 'Raleway',
 		color: 'white',
+		marginBottom: 6,
 	}
 })
 

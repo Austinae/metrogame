@@ -57,6 +57,7 @@ const AppContent = () => {
                       name="HomeStack"
                       component={HomeStack}
                       options={{
+                        tabBarStyle: { display: 'none' },
                         tabBarLabel: t("navigationTitle.home"),
                         tabBarIcon: ({ color }) => (
                           <Ionicon name="md-home" color={color} size={ICON_SIZE} />
@@ -67,6 +68,7 @@ const AppContent = () => {
                       name="LearnStack"
                       component={LearnStack}
                       options={{
+                        tabBarStyle: { display: 'none' },
                         tabBarLabel: t("navigationTitle.learn"),
                         tabBarIcon: ({ color }) => (
                           <Ionicon name="md-book" color={color} size={ICON_SIZE} />
@@ -77,6 +79,7 @@ const AppContent = () => {
                       name="Settings"
                       component={Settings}
                       options={{
+                        tabBarStyle: { display: 'none' },
                         tabBarLabel: t("navigationTitle.settings"),
                         tabBarIcon: ({ color }) => (
                           <Ionicon name="md-settings" color={color} size={ICON_SIZE} />

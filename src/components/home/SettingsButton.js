@@ -2,17 +2,15 @@ import { TouchableOpacity, Dimensions, StyleSheet } from 'react-native'
 import React from 'react'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 
-import useGameContext from 'contexts/Game'
-
 const { width, height } = Dimensions.get('window')
 const ICON_SIZE = width * .1
 const ICON_COLOR = 'grey'
-const STORE_TOP = width > 700 ? 100 : 110
+const STORE_TOP = width > 700 ? 60 : 70
 
-const StoreButton = ({ navigation }) => {
+const SettingsButton = ({ navigation }) => {
 	return (
-		<TouchableOpacity onPress={() => navigation.navigate('HomeStack', { screen: 'Store' })} style={styles.container}>
-			<FontAwesome5Icon name={"store"} size={ICON_SIZE} color={ICON_COLOR} />
+		<TouchableOpacity onPress={() => navigation.navigate('Settings', { screen: 'Settings' })} style={styles.container}>
+			<FontAwesome5Icon name={"cog"} size={ICON_SIZE} color={ICON_COLOR} />
 		</TouchableOpacity>
 	)
 }
@@ -21,11 +19,11 @@ const styles = StyleSheet.create({
 	container: {
 		position: 'absolute',
 		top: STORE_TOP,
-		right: 15,
+		left: 10,
 		justifyContent: 'center',
 		alignItems: 'center',
 	}
 })
 
-export default StoreButton
+export default SettingsButton
 
