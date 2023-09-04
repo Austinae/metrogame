@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 
 import Back from 'components/basics/Back'
-import Coins from 'components/common/Coins'
 
 import LearningImage from 'assets/images/miscellaneous/learning.png'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -22,7 +21,6 @@ const Learn = ({ navigation }) => {
   return (
 		<LinearGradient colors={['skyblue', 'lightblue']} style={{flex: 1}}>
 			<Back onPress={() => navigation.navigate('Home')} color={'white'} />
-			<Coins containerStyle={styles.coinsContainer} />
 			<ScrollView contentContainerStyle={styles.container}>
 				<View style={styles.storeImageContainer}>
 					<Image

@@ -7,7 +7,7 @@ import World from 'components/learn/World'
 import ExploreRegionPick from 'components/learn/ExploreRegionPick'
 import ExploreMap from 'components/learn/ExploreMap'
 
-const HomeStack = () => {
+const LearnButton = () => {
 	const Stack = createNativeStackNavigator()
 
 	return (
@@ -28,4 +28,4 @@ const HomeStack = () => {
 	)
 }
 
-export default HomeStack
+export default LearnButton

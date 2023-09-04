@@ -1,6 +1,7 @@
 import React, { useRef }from 'react'
 import { Animated, Dimensions, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
+import { useTranslation } from 'react-i18next'
 
 import buttonSound from 'assets/sounds/button2.mp3'
 import useMusicContext from 'contexts/Music'
@@ -9,9 +10,10 @@ const { width } = Dimensions.get('window')
 const BUTTON_SIZE = width * .7
 const FONT_SIZE = BUTTON_SIZE * .1
 
-const LearnStack = ({ navigation }) => {
+const LearnButton = ({ navigation }) => {
 	const playButtonAnim = useRef(new Animated.Value(1)).current
   const { playAudioAsync } = useMusicContext()
+  const { t } = useTranslation()
 
   const onPressEvent = async() => {
     await playAudioAsync(buttonSound)
@@ -26,7 +28,7 @@ const LearnStack = ({ navigation }) => {
       >
         <View style={styles.innerButtonContainer}>
           <View style={styles.relief} />
-          <Text style={styles.buttonText}>Learn</Text>
+          <Text style={styles.buttonText}>{t("learn")}</Text>
         </View>
       </LinearGradient>
     </TouchableOpacity>
@@ -71,4 +73,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default LearnStack
+export default LearnButton

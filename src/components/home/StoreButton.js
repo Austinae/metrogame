@@ -5,7 +5,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 import useGameContext from 'contexts/Game'
 
 const { width, height } = Dimensions.get('window')
-const ICON_SIZE = width * .1
+const ICON_SIZE = width * .08
 const ICON_COLOR = 'grey'
 const STORE_TOP = width > 700 ? 100 : 110
 

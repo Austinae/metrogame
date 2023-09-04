@@ -3,9 +3,9 @@ import React from 'react'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 
 const { width, height } = Dimensions.get('window')
-const ICON_SIZE = width * .1
+const ICON_SIZE = width * .08
 const ICON_COLOR = 'grey'
-const STORE_TOP = width > 700 ? 60 : 70
+const STORE_TOP = width > 700 ? 40 : 50
 
 const SettingsButton = ({ navigation }) => {
 	return (

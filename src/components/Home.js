@@ -3,16 +3,16 @@ import React from 'react'
 
 import regions from 'data/regions'
 import Play from 'components/home/Play'
-import LearnStack from 'components/home/LearnStack'
 // import Achievements from 'components/home/Achievements'
 import TrainAnimation from 'components/home/TrainAnimation'
 import Coins from 'components/common/Coins'
 import StoreButton from 'components/home/StoreButton'
+import LearnButton from 'components/home/LearnButton'
 import SettingsButton from 'components/home/SettingsButton'
 import RecentlyPlayed from 'components/home/RecentlyPlayed'
 
 const { width, height } = Dimensions.get('window')
-const SCORE_TOP = width > 700 ? 110 : 60
+const SCORE_TOP = width > 700 ? 40 : 50
 
 const Home = ({ navigation }) => {
 	// randomize this?
@@ -30,7 +30,7 @@ const Home = ({ navigation }) => {
 				<StoreButton navigation={navigation} />
 				<SettingsButton navigation={navigation} />
 				<Play navigation={navigation} />
-				<LearnStack navigation={navigation} />
+				<LearnButton navigation={navigation} />
 				<RecentlyPlayed navigation={navigation} />
 			</View>
 		</ImageBackground>

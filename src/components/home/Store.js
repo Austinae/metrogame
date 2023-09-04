@@ -233,8 +233,8 @@ const styles = StyleSheet.create({
 	coinsContainer: {
 		zIndex: 2,
 		position: 'absolute',
-		top: 10,
-		right: 10,
+		top: 30,
+		right: 20,
 	},
 	lockIconContainer: {
 		position: 'absolute',

@@ -109,7 +109,7 @@ const MarkerStyleStore = ({ navigation }) => {
 					<Text style={styles.modalText}>{modalMessage}</Text>
 					<Button title={"✅"} onPress={() => setModalVisible(false)} />
 				</View>
-      </Modal>
+      		</Modal>
 		</ImageBackground>
   )
 }
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
 	coinsContainer: {
 		zIndex: 2,
 		position: 'absolute',
-		top: 10,
+		top: 40,
 		right: 10,
 	},
 	lockIconContainer: {
