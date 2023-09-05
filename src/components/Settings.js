@@ -16,6 +16,7 @@ import useMusicContext from 'contexts/Music'
 import Button from 'components/basics/Button'
 import cabineImg from 'assets/images/miscellaneous/cabine.jpeg'
 import VolumeSlider from 'components/settings/VolumeSlider'
+import Back from 'components/basics/Back'
 
 const { width, height } = Dimensions.get('window')
 const ICON_SIZE = width * .7 * .2
@@ -28,7 +29,7 @@ const INPUT_FONT_SIZE = height * .025
 const SELECT_LIST_CHEVRON_SIZE = height * .04
 const SELECT_LIST_ICON_SIZE = height * .03
 
-const Settings = () => {
+const Settings = ({ navigation }) => {
 	const { isMusicOn, setIsMusicOn, isSoundFXOn, setIsSoundFXOn, playAudioAsync } = useMusicContext()
 	const [isMusicButtonVisible, setIsMusicButtonVisible] = useState(true)
 	const { t } = useTranslation()
@@ -58,6 +59,7 @@ const Settings = () => {
 			imageStyle={{opacity: .7}}
 			style={[styles.imageBackground, { height }]}
 		>
+			<Back onPress={() => navigation.navigate('Home')} color={'white'} />
 			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: 2}}>
 				<Button text={t('language')} onPress={onLanguagePress}>
 					<MaterialIcon color={'#8080FF'} size={ICON_SIZE} name={'language'} />

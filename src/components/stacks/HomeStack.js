@@ -9,8 +9,6 @@ import LengthSelection from 'components/home/play/LengthSelection'
 import Choice from 'components/home/play/gamemodes/Choice'
 import Distance from 'components/home/play/gamemodes/Distance'
 import Store from 'components/home/Store'
-import MapStyleStore from 'components/home/MapStyleStore'
-import MarkerStyleStore from 'components/home/MarkerStyleStore'
 
 const HomeStack = () => {
 	const Stack = createNativeStackNavigator()
@@ -22,8 +20,6 @@ const HomeStack = () => {
 		>
 			<Stack.Screen name="Home" component={Home} />
 			<Stack.Screen name="Store" component={Store} />
-			<Stack.Screen name="MapStyleStore" component={MapStyleStore} />
-			<Stack.Screen name="MarkerStyleStore" component={MarkerStyleStore} />
 			<Stack.Screen name="RegionSelection" component={RegionSelection} />
 			<Stack.Screen name="GamemodeSelection" component={GamemodeSelection} />
 			<Stack.Screen name="LinesSelection" component={LinesSelection} />
